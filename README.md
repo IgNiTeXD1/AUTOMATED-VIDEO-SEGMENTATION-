@@ -1,6 +1,8 @@
 **AUTOMATED VIDEO SEGMENTATION**
 
-A Flask-based web application that allows users to upload a video and segments it into scenes based on structural similarity between frames. This tool is useful for video editing workflows, where automated scene detection can save significant time.
+A Flask-based web application that allows users to upload a video and segments it into scenes based on structural similarity between frames with the help of Structural Similarity Index(SSI) . This tool is useful for video editing workflows, where automated scene detection can save significant time.
+
+
 
 ![image](https://github.com/user-attachments/assets/3a90c302-5114-4a86-9099-0d0002a215bc)
 
