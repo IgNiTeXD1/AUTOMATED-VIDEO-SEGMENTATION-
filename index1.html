@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineCopilot Video Segmentation Module</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+       
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #b9f1ff, #91c1ff, #deb1ff);
+            color: #000;
+        }
+
+    
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+        }
+
+
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        
+        .upload-section {
+            margin-top: 30px;
+        }
+
+        .upload-instructions {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .upload-button {
+            padding: 15px 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.4s ease, transform 0.2s ease;
+        }
+
+        .upload-button:hover {
+            background: #555;
+            transform: translateY(-3px);
+        }
+
+       
+        #uploadingText {
+            display: none;
+            margin-top: 15px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+       
+        .footer {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        
+        @media (max-width: 600px) {
+            .main-title {
+                font-size: 1.8rem;
+            }
+            .upload-button {
+                padding: 10px 30px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Content -->
+        <h1 class="main-title">CINE-COPILOT VIDEO SEGMENTATION MODULE</h1>
+        <div class="upload-section">
+            <p class="upload-instructions">Upload video here</p>
+            <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="video/*" style="display: none;" id="fileInput" required>
+                <button type="button" class="upload-button" onclick="document.getElementById('fileInput').click();">UPLOAD</button>
+                <p id="uploadingText">Uploading, please wait...</p>
+            </form>
+        </div>
+
+
+        
+    </div>
+
+    <script>
+        // JavaScript to handle form submission with validation and feedback
+        document.getElementById('fileInput').onchange = function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                // File size validation (e.g., max 100MB)
+                if (file.size > 104857600) { // 100MB in bytes
+                    alert('File size should be less than 100MB');
+                    return;
+                }
+                
+                // Display uploading text and submit form
+                document.getElementById('uploadingText').style.display = 'block';
+                document.getElementById('uploadForm').submit();
+            }
+        };
+    </script>
+</body>
+</html>
+
+
